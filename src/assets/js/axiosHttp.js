@@ -1,12 +1,15 @@
 import axios from 'axios'
+import { Message } from 'element-ui'
+import { Loading } from 'element-ui'
 import store from '@/store'
+import env from './env'
 
-const service = axios.create({
-  baseURL: ' /api',
+const axiosHttp = axios.create({ // 创建实例时设置配置的默认值
+  baseURL: env.baseUrl, // 根据不同项目修改
   timeout: 15000 // 请求超时时间
 })
 
-service.interceptors.request.use(function (config) {
+axiosHttp.interceptors.request.use(function (config) {
   // 在发送请求之前做些什么
   return config
 }, function (error) {
@@ -15,9 +18,10 @@ service.interceptors.request.use(function (config) {
 })
 
 // 添加响应拦截器
-service.interceptors.response.use(function (response) {
+axiosHttp.interceptors.response.use(function (response) {
   // 对响应数据做点什么
-  return response
+  return response // response是一个对象
+  // return Promise.resolve(response)
 }, function (error) {
   // 请求错误则向store commit这个状态变化
   const httpError = {
@@ -29,4 +33,4 @@ service.interceptors.response.use(function (response) {
   return Promise.reject(error)
 })
 
-export default service
+export default axiosHttp

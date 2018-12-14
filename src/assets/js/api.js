@@ -1,7 +1,11 @@
-import request from './request.js'
+import axiosHttp from './axiosHttp.js'
 
 export function getTest () {
-  return request({
+  console.log(axiosHttp({
+    url: '/test',
+    method: 'get'
+  }))
+  return axiosHttp({
     url: '/test',
     method: 'get'
   })

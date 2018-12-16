@@ -4,14 +4,16 @@
       <p style="color:red" v-show="httpError.hasError">{{httpError.status}} | {{httpError.statusText}}</p>
       <el-button @click="requestHandle">get test</el-button>
       <p>{{reponseData}}</p>
-      <router-view></router-view>
+      <!-- <router-view></router-view> -->
+      <p>count: {{$store.state.app.count}}</p>
+      <el-button @click="login">click1</el-button>
     </div>
   </div>
 </template>
 
 <script>
-import { mapState } from 'vuex'
-import { getTest } from '../assets/js/api.js'
+import { mapState, mapMutations } from 'vuex'
+import { getTest, login } from '../assets/js/api.js'
 export default {
   data () {
     return {
@@ -19,20 +21,31 @@ export default {
     }
   },
   computed: {
-    ...mapState(['httpError'])
+    ...mapState({
+      httpError: state => state.app.httpError
+    })
   },
   methods: {
+    login () {
+      login({ userName: 'admin', password: '1234561' }).then(response => {
+        if (response.code === '00') {
+          
+        } else {
+          this.$message.error(response.msg)
+        }
+      })
+    },
     requestHandle () {
-      // axios.get('/api/test1').then(response => {
-      //   console.log(1, response)
-      //   console.log(typeof response.data)
-      // }).catch(error => {
-      //   console.log(2, error.response)
-      // })
       getTest().then(response => {
-        this.reponseData = response.data // eslint-disable-next-line
+        console.log(response)
+        if (response.code === '00') {
+          this.reponseData = response.data // eslint-disable-next-line
+        } else {
+          this.$message.error(response.msg)
+        }
       }).catch(error => {
-        this.reponseData = '发生错误，无法显示内容'
+        // console.log(error)
+        // this.reponseData = '发生错误，无法显示内容'
       })
     }
   }

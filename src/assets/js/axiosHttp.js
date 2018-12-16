@@ -1,36 +1,56 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
-import { Loading } from 'element-ui'
-import store from '@/store'
-import env from './env'
 
-const axiosHttp = axios.create({ // 创建实例时设置配置的默认值
-  baseURL: env.baseUrl, // 根据不同项目修改
-  timeout: 15000 // 请求超时时间
+// import store from '@/store'
+import config from '@/config'
+import { showFullScreenLoading, tryHideFullScreenLoading } from './axiosInitHelper'
+
+// 创建axios实例并配置默认值
+const axiosHttp = axios.create({
+  baseURL: config.baseUrl,
+  timeout: 15000,
+  headers: {
+    // Authorization: '123456'
+    Authorization: null
+  }
 })
 
+// 请求拦截器
 axiosHttp.interceptors.request.use(function (config) {
-  // 在发送请求之前做些什么
+  if (config.showLoading) {
+    showFullScreenLoading()
+  }
   return config
 }, function (error) {
-  // 对请求错误做些什么
   return Promise.reject(error)
 })
 
-// 添加响应拦截器
+// 响应拦截器
 axiosHttp.interceptors.response.use(function (response) {
-  // 对响应数据做点什么
-  return response // response是一个对象
+  if (response.config.showLoading) {
+    tryHideFullScreenLoading()
+  }
+  console.log(response)
+  return response.data // response是一个对象
   // return Promise.resolve(response)
 }, function (error) {
+  tryHideFullScreenLoading()
   // 请求错误则向store commit这个状态变化
-  const httpError = {
-    hasError: true,
-    status: error.response.status,
-    statusText: error.response.statusText
-  }
-  store.commit('ON_HTTP_ERROR', httpError)
+  // const httpError = {
+  //   hasError: true,
+  //   status: error.response.status,
+  //   statusText: error.response.statusText
+  // }
+  // store.commit('ON_HTTP_ERROR', httpError)
+  Message.error(error.response.statusText)
   return Promise.reject(error)
 })
 
-export default axiosHttp
+const defaultConfig = { showLoading: true }
+export default {
+  get: (url, config) => axiosHttp.get(url, { ...defaultConfig, ...config }),
+  put: (url, data, config) => axiosHttp.put(url, data, { ...defaultConfig, ...config }),
+  post: (url, data, config) => axiosHttp.post(url, data, { ...defaultConfig, ...config }),
+  patch: (url, data, config) => axiosHttp.patch(url, data, { ...defaultConfig, ...config }),
+  delete: (url, data, config) => axiosHttp.delete(url, { ...defaultConfig, ...config })
+}

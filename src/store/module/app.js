@@ -1,9 +1,4 @@
-import Vue from 'vue'
-import Vuex from 'vuex'
-
-Vue.use(Vuex)
-
-export default new Vuex.Store({
+export default {
   state: {
     httpError: {
       hasError: false,
@@ -19,4 +14,4 @@ export default new Vuex.Store({
   actions: {
 
   }
-})
+}

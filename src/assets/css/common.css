@@ -1,3 +1,6 @@
+* {
+  box-sizing: border-box;
+}
 html,body{
   width: 100%;
   height: 100%;
@@ -24,4 +27,15 @@ html,body{
 
 .p20 {
   padding: 20px;
+}
+
+.el-dropdown-menu {
+  padding: 5px 0;
+}
+.el-dropdown-menu__item {
+  line-height: 30px;
+}
+
+a {
+  text-decoration: none;
 }

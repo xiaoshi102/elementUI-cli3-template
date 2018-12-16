@@ -3,20 +3,15 @@
     <div class="login-con">
       <el-card icon="log-in" header="欢迎登录" :bordered="false">
         <div class="form-con">
-          <!-- <login-form @on-success-valid="handleSubmit"></login-form> -->
-          <el-form ref="loginForm" :model="form" :rules="rules" @keydown.enter.native="handleSubmit">  <!-- @keydown.enter.native="handleSubmit" -->
+          <el-form ref="loginForm" :model="form" :rules="rules" @keydown.enter.native="handleSubmit">
             <el-form-item prop="userName">
-              <el-input v-model="form.userName" placeholder="请输入用户名" prefix-icon="el-icon-search">
-                <!-- <span slot="prepend">
-                  <Icon :size="16" type="ios-person"></Icon>
-                </span> -->
+              <el-input v-model="form.userName" placeholder="请输入用户名">
+                <template slot="prepend"><i class="iconfont icon-userName"></i></template>
               </el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input type="password" v-model="form.password" placeholder="请输入密码" prefix-icon="el-icon-search">
-                <!-- <span slot="prepend">
-                  <Icon :size="14" type="md-lock"></Icon>
-                </span> -->
+              <el-input type="password" v-model="form.password" placeholder="请输入密码">
+                <template slot="prepend"><i class="iconfont icon-password"></i></template>
               </el-input>
             </el-form-item>
             <el-form-item>
@@ -30,6 +25,7 @@
 </template>
 
 <script>
+import { login } from '../assets/js/api.js'
 export default {
   data () {
     return {
@@ -51,7 +47,18 @@ export default {
     handleSubmit () {
       this.$refs.loginForm.validate(valid => {
         if (valid) {
-          console.log(111)
+          login(this.form).then(response => {
+            if (response.code === '00') {
+              this.$store.commit('setToken', response.data.token)
+              this.$store.commit('setUserName', response.data.userName)
+              this.$store.commit('setRealName', response.data.realName)
+              this.$store.commit('setUserId', response.data.userId)
+              this.$store.commit('setAvatorImgPath', response.data.avatorImgPath)
+              this.$router.push('/home')
+            } else {
+              this.$message.error(response.msg)
+            }
+          })
         }
       })
     }
@@ -78,5 +85,8 @@ export default {
             padding: 10px 0 0;
         }
     }
+}
+.login /deep/ .el-input-group__prepend {
+  padding: 0 8px;
 }
 </style>

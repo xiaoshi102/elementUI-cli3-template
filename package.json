@@ -13,6 +13,7 @@
     "js-cookie": "^2.2.0",
     "lodash": "^4.17.11",
     "vue": "^2.5.17",
+    "vue-neditor-wrap": "^1.0.4",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },

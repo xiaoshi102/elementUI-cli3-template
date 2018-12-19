@@ -18,6 +18,8 @@
             <template slot="title">table</template>
             <el-menu-item index="/home/table/table1">table1</el-menu-item>
           </el-submenu>
+          <el-menu-item index="/home/directive">directive</el-menu-item>
+          <el-menu-item index="/home/editor">editor</el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>

@@ -40,6 +40,16 @@ const router = new Router({
           path: '/home/vuex',
           name: 'vuex',
           component: () => import('@/views/vuex.vue')
+        },
+        {
+          path: '/home/directive',
+          name: 'directive',
+          component: () => import('@/views/directive.vue')
+        },
+        {
+          path: '/home/editor',
+          name: 'editor',
+          component: () => import('@/views/editor.vue')
         }
       ]
     }

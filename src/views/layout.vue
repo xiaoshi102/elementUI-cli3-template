@@ -28,9 +28,15 @@
 </template>
 
 <script>
+import storage from 'store'
 import { mapState } from 'vuex'
-import { logout } from '@/assets/js/api'
+import { logout, getMenuList } from '@/assets/js/api'
 export default {
+  data () {
+    return {
+      menuList: []
+    }
+  },
   computed: {
     ...mapState({
       realName: state => state.user.realName
@@ -45,12 +51,18 @@ export default {
       switch (name) {
         case 'logout':
           logout().then(() => {
+            storage.remove('token')
             this.$store.commit('setToken', '')
             this.$router.push('/login')
           })
           break
       }
     }
+  },
+  mounted () {
+    getMenuList().then(response => {
+      this.menuList = response.data.records
+    })
   }
 }
 </script>

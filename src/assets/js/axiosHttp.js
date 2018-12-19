@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { Message } from 'element-ui'
+import storage from 'store'
 
-// import store from '@/store'
 import config from '@/config'
 import { showFullScreenLoading, tryHideFullScreenLoading } from './axiosInitHelper'
 
@@ -11,7 +11,7 @@ const axiosHttp = axios.create({
   timeout: 15000,
   headers: {
     // Authorization: '123456'
-    Authorization: null
+    // Authorization: storage.get('token') ? storage.get('token') : ''
   }
 })
 
@@ -20,6 +20,7 @@ axiosHttp.interceptors.request.use(function (config) {
   if (config.showLoading) {
     showFullScreenLoading()
   }
+  config.headers.Authorization = storage.get('token') ? storage.get('token') : ''
   return config
 }, function (error) {
   return Promise.reject(error)
@@ -30,7 +31,6 @@ axiosHttp.interceptors.response.use(function (response) {
   if (response.config.showLoading) {
     tryHideFullScreenLoading()
   }
-  console.log(response)
   return response.data // response是一个对象
   // return Promise.resolve(response)
 }, function (error) {

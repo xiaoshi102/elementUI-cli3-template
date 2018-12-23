@@ -53,6 +53,11 @@ export default {
     handleStore () {
       storage.set('name', {firstname: 'bx', lastname: 'z'})
     }
+  },
+  mounted () {
+    window.onbeforeunload = function () {
+      return '1111'
+    }
   }
 }
 </script>

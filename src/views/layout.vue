@@ -20,6 +20,7 @@
           </el-submenu>
           <el-menu-item index="/home/directive">directive</el-menu-item>
           <el-menu-item index="/home/editor">editor</el-menu-item>
+          <el-menu-item index="/home/watch">watch</el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>

@@ -43,6 +43,7 @@ window.UEDITOR_CONFIG['imageUploadService'] = function(context, editor) {
          * @returns 上传参数对象
          */
         setFormData: function(object, data, headers) {
+            data.token = window.localStorage.getItem('token')
             return data;
         },
         /**
@@ -66,7 +67,7 @@ window.UEDITOR_CONFIG['imageUploadService'] = function(context, editor) {
         /* 指定上传接口返回的response中图片路径的字段，默认为 url
          * 如果图片路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
          * */
-        imageSrcField: 'url'
+        imageSrcField: 'imageUrl'
     }
 };
 

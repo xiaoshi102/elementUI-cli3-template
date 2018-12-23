@@ -50,6 +50,11 @@ const router = new Router({
           path: '/home/editor',
           name: 'editor',
           component: () => import('@/views/editor.vue')
+        },
+        {
+          path: '/home/watch',
+          name: 'watch',
+          component: () => import('@/views/watch.vue')
         }
       ]
     }

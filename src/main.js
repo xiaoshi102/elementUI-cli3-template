@@ -5,7 +5,9 @@ import store from './store'
 import './plugins/element.js'
 import './assets/css/lib.css'
 import './assets/css/common.css'
+import test from '@/assets/js/test.js'
 
+Vue.use(test, { msg: 'hello hello' })
 Vue.config.productionTip = false
 Vue.directive('focus', {
   inserted: function (el) {
@@ -41,13 +43,11 @@ Vue.directive('demo', {
     el.value = 'unbind'
   }
 })
-Vue.directive('auth', {
-  bind (el, binding, vnode) {
-    el.style.display = 'none'
-  }
-})
-new Vue({
+const vueInstance = new Vue({
   router,
   store,
   render: h => h(App)
 }).$mount('#app')
+
+console.log(vueInstance)
+console.log(Vue.myProperty)

@@ -2,10 +2,11 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import storage from 'store'
 
-import config from '@/config'
+import baseUrl from './setBaseUrl'
+// import config from '@/config'
 import { showFullScreenLoading, tryHideFullScreenLoading } from './axiosInitHelper'
 
-const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
+// const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
 // 创建axios实例并配置默认值
 const axiosHttp = axios.create({
   baseURL: baseUrl,

@@ -29,7 +29,7 @@ export default {
         // 初始容器宽度
         initialFrameWidth: '100%',
         // 关闭自动保存
-        enableAutoSave: true
+        enableAutoSave: false
       },
       // myConfig1: {
       //   // 如果需要上传功能,找后端小伙伴要服务器接口地址

@@ -1,13 +1,11 @@
-import Cookies from 'js-cookie'
-import config from '@/config'
+import storage from 'store'
 
-const TOKEN_KEY = 'token'
 export const setToken = (token) => {
-  Cookies.set(TOKEN_KEY, token, { expires: config.cookieExpires || 1 })
+  storage.set('token', token)
 }
 
 export const getToken = () => {
-  const token = Cookies.get(TOKEN_KEY)
+  const token = storage.get('token')
   if (token) return token
   else return false
 }

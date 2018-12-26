@@ -7,11 +7,13 @@
       <!-- <router-view></router-view> -->
       <p>count: {{$store.state.app.count}}</p>
       <el-button @click="login">click1</el-button>
+      <el-button @click="handleStore">click2</el-button>
     </div>
   </div>
 </template>
 
 <script>
+import storage from 'store'
 import { mapState, mapMutations } from 'vuex'
 import { getTest, login } from '../assets/js/api.js'
 export default {
@@ -29,7 +31,7 @@ export default {
     login () {
       login({ userName: 'admin', password: '1234561' }).then(response => {
         if (response.code === '00') {
-          
+
         } else {
           this.$message.error(response.msg)
         }
@@ -47,6 +49,14 @@ export default {
         // console.log(error)
         // this.reponseData = '发生错误，无法显示内容'
       })
+    },
+    handleStore () {
+      storage.set('name', {firstname: 'bx', lastname: 'z'})
+    }
+  },
+  mounted () {
+    window.onbeforeunload = function () {
+      return '1111'
     }
   }
 }

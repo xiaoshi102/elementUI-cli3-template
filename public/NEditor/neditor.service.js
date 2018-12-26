@@ -9,8 +9,8 @@ UE.Editor.prototype._bkGetActionUrl = UE.Editor.prototype.getActionUrl;
 UE.Editor.prototype.getActionUrl = function(action) {
     /* 按config中的xxxActionName返回对应的接口地址 */
     if (action == 'uploadimage' || action == 'uploadscrawl') {
-        // return 'http://a.b.com/upload.php';
-        return 'http://localhost:3000/upload';
+        return 'http://a.b.com/upload.php';
+        // return 'http://localhost:3000/upload';
     } else if (action == 'uploadvideo') {
         return 'http://a.b.com/video.php';
     } else {
@@ -66,7 +66,8 @@ window.UEDITOR_CONFIG['imageUploadService'] = function(context, editor) {
         /* 指定上传接口返回的response中图片路径的字段，默认为 url
          * 如果图片路径字段不是res的属性，可以写成 对象.属性 的方式，例如：data.url
          * */
-        imageSrcField: 'url'
+        // imageSrcField: 'url'
+        imageSrcField: 'imageUrl'
     }
 };
 

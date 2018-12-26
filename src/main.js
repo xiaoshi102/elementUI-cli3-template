@@ -5,6 +5,7 @@ import store from './store'
 import './plugins/element.js'
 import './assets/css/lib.css'
 import './assets/css/common.css'
+import element from 'element-ui'
 
 Vue.config.productionTip = false
 Vue.directive('focus', {

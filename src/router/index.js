@@ -18,6 +18,11 @@ const router = new Router({
       component: () => import('@/views/login.vue')
     },
     {
+      path: '/echart',
+      name: 'echart',
+      component: () => import('@/views/echart.vue')
+    },
+    {
       path: '/home',
       redirect: '/home/axios',
       name: 'home',
@@ -55,6 +60,11 @@ const router = new Router({
           path: '/home/watch',
           name: 'watch',
           component: () => import('@/views/watch.vue')
+        },
+        {
+          path: '/home/echart',
+          name: 'echart',
+          component: () => import('@/views/echart.vue')
         }
       ]
     }

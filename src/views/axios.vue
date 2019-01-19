@@ -14,12 +14,12 @@
 
 <script>
 import storage from 'store'
-import { mapState, mapMutations } from 'vuex'
-import { getTest, login } from '../assets/js/api.js'
+import { mapState } from 'vuex'
+import { getTest, login } from '@/assets/js/api'
 export default {
   data () {
     return {
-      reponseData: ''
+      reponseData: ""
     }
   },
   computed: {
@@ -46,12 +46,12 @@ export default {
           this.$message.error(response.msg)
         }
       }).catch(error => {
-        // console.log(error)
+        console.log(error)
         // this.reponseData = '发生错误，无法显示内容'
       })
     },
     handleStore () {
-      storage.set('name', {firstname: 'bx', lastname: 'z'})
+      storage.set('name', { firstname: 'bx', lastname: 'z' })
     }
   },
   mounted () {

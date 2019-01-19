@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import { login } from '../assets/js/api.js'
+import { login } from '@/assets/js/api'
 export default {
   data () {
     return {

@@ -1,4 +1,4 @@
-import axiosHttp from './axiosHttp.js'
+import axiosHttp from '@/assets/js/axios/axiosHttp.js'
 
 export function getTest () {
   return axiosHttp.get('/test', {

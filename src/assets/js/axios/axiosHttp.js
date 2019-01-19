@@ -2,14 +2,12 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 import storage from 'store'
 
-import baseUrl from './setBaseUrl'
-// import config from '@/config'
+import config from '@/config'
 import { showFullScreenLoading, tryHideFullScreenLoading } from './axiosInitHelper'
 
-// const baseUrl = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
 // 创建axios实例并配置默认值
 const axiosHttp = axios.create({
-  baseURL: baseUrl,
+  baseURL: config.baseUrl,
   timeout: 15000,
   headers: {
     // Authorization: '123456'

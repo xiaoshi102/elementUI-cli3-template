@@ -46,10 +46,16 @@ export default {
       realName: state => state.user.realName
     })
   },
+  watch: {
+    // '$route' (newVal, oldVal) {
+    //   console.log('newVal', newVal)
+    //   console.log('oldVal', oldVal)
+    // }
+  },
   methods: {
     selectHandle (index, indexPath) { // 点击二级el-submenu不会触发
-      console.log(index)
-      console.log(indexPath)
+      // console.log(index)
+      // console.log(indexPath)
     },
     handleCommand (name) {
       switch (name) {

@@ -1,11 +1,29 @@
 <template>
   <div class="p20">
-    vuex
+    {{title}}
   </div>
 </template>
 
 <script>
 export default {
+  data () {
+    return {
+      title: 'vuexxx'
+    }
+  },
+  watch: {
+    // '$route' (newVal, oldVal) {
+    //   console.log('newVal', newVal)
+    //   console.log('oldVal', oldVal)
+    // }
+    '$route': {
+      handler (newVal, oldVal) {
+        console.log('newVal', newVal)
+        console.log('oldVal', oldVal)
+      },
+      immediate: true
+    }
+  }
 }
 </script>
 

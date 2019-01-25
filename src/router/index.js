@@ -63,7 +63,7 @@ const router = new Router({
         },
         {
           path: '/home/echart',
-          name: 'echart',
+          name: 'echart1',
           component: () => import('@/views/echart.vue')
         }
       ]

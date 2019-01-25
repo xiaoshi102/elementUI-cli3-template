@@ -5,7 +5,7 @@ let needLoadingRequestCount = 0
 let loading
 
 function startLoading () {
-  console.log('startLoading =============')
+  // console.log('startLoading =============')
   loading = Loading.service({
     lock: true,
     text: '加载中……',
@@ -14,7 +14,7 @@ function startLoading () {
 }
 
 function endLoading () {
-  console.log('endLoading==========')
+  // console.log('endLoading==========')
   loading.close()
 }
 

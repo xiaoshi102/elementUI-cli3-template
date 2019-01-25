@@ -23,6 +23,11 @@ const router = new Router({
       component: () => import('@/views/echart.vue')
     },
     {
+      path: '/echart1',
+      name: 'echart1',
+      component: () => import('@/views/echart1.vue')
+    },
+    {
       path: '/home',
       redirect: '/home/axios',
       name: 'home',

@@ -15,15 +15,15 @@ require('echarts/lib/chart/line')
 // 引入提示框和标题组件
 require('echarts/lib/component/tooltip');
 require('echarts/lib/component/title');
-require('echarts/lib/component/legend');
+require('echarts/lib/component/legendScroll');
 import 'echarts/lib/chart/line'
 // import echarts from 'echarts'
 
 import ECharts from 'vue-echarts/components/ECharts'
 export default {
-  components: {
-    'v-chart': ECharts
-  },
+  // components: {
+  //   'v-chart': ECharts
+  // },
   data: function() {
     return {
       options: {

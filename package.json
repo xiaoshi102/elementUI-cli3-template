@@ -1,12 +1,12 @@
 {
-  "name": "hello-world",
+  "name": "elementUI-cli3-template",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "alpha": "vue-cli-service build --mode alpha",
     "build": "vue-cli-service build --mode build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "alpha": "vue-cli-service build --mode alpha"
   },
   "dependencies": {
     "axios": "^0.18.0",

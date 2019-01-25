@@ -6,6 +6,21 @@ import './plugins/element.js'
 import './assets/css/lib.css'
 import './assets/css/common.css'
 import test from '@/assets/js/test.js'
+import VeLine from 'v-charts/lib/line.common'
+require('echarts/lib/component/grid')
+require('echarts/lib/component/title')
+
+// import ECharts from 'vue-echarts/components/ECharts.vue'
+// import 'echarts/lib/chart/line'
+// require('echarts/lib/chart/line')
+// // 引入提示框和标题组件
+// require('echarts/lib/component/tooltip')
+// require('echarts/lib/component/title')
+// require('echarts/lib/component/legendScroll')
+
+// Vue.component('v-chart', ECharts)
+
+Vue.component(VeLine.name, VeLine)
 
 Vue.use(test, { msg: 'hello hello' })
 Vue.config.productionTip = false

@@ -13,7 +13,7 @@
       <el-aside width="200px">
         <el-menu router :default-active="$route.path" @select="selectHandle">
           <el-menu-item index="/home/axios">axios</el-menu-item>
-          <el-menu-item index="/home/vuex">vuex</el-menu-item>
+          <el-menu-item index="/home/vuex/1">vuex</el-menu-item>
           <el-submenu index="2">
             <template slot="title">table</template>
             <el-menu-item index="/home/table/table1">table1</el-menu-item>

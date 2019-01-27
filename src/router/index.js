@@ -7,6 +7,9 @@ import config from '@/config'
 Vue.use(Router)
 
 const router = new Router({
+  // scrollBehavior (to, from, savedPosition) {
+  //   return { x: 0, y: 0 }
+  // },
   routes: [
     {
       path: '/',
@@ -65,7 +68,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/vuex',
+          path: '/home/vuex/:id',
           name: 'vuex',
           component: () => import('@/views/vuex.vue'),
           meta: {
@@ -119,6 +122,7 @@ const router = new Router({
 
 const LOGIN_PAGE_NAME = 'login'
 router.beforeEach((to, from, next) => {
+  console.log('beforeEach')
   const token = getToken()
   document.title = to.meta.title + '-ele admin'
   if (!token && to.name !== LOGIN_PAGE_NAME) {
@@ -154,6 +158,7 @@ router.beforeEach((to, from, next) => {
 })
 
 router.afterEach(to => {
+  console.log('afterEach')
   window.scrollTo(0, 0)
 })
 

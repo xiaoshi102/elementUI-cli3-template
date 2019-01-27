@@ -10,22 +10,34 @@ const router = new Router({
   routes: [
     {
       path: '/',
-      redirect: '/login'
+      redirect: '/login',
+      meta: {
+        title: '登录'
+      }
     },
     {
       path: '/login',
       name: 'login',
-      component: () => import('@/views/login.vue')
+      component: () => import('@/views/login.vue'),
+      meta: {
+        title: '登录'
+      }
     },
     {
       path: '/echart',
       name: 'echart',
-      component: () => import('@/views/echart.vue')
+      component: () => import('@/views/echart.vue'),
+      meta: {
+        title: '图表'
+      }
     },
     {
       path: '/echart1',
       name: 'echart1',
-      component: () => import('@/views/echart1.vue')
+      component: () => import('@/views/echart1.vue'),
+      meta: {
+        title: '图表'
+      }
     },
     {
       path: '/home',
@@ -39,42 +51,66 @@ const router = new Router({
         {
           path: '/home/axios',
           name: 'axios',
-          component: () => import('@/views/axios.vue')
+          component: () => import('@/views/axios.vue'),
+          meta: {
+            title: 'axios'
+          }
         },
         {
           path: '/home/table/table1',
           name: 'table1',
-          component: () => import('@/views/table/table1.vue')
+          component: () => import('@/views/table/table1.vue'),
+          meta: {
+            title: '表格'
+          }
         },
         {
           path: '/home/vuex',
           name: 'vuex',
-          component: () => import('@/views/vuex.vue')
+          component: () => import('@/views/vuex.vue'),
+          meta: {
+            title: 'vuex'
+          }
         },
         {
           path: '/home/directive',
           name: 'directive',
-          component: () => import('@/views/directive.vue')
+          component: () => import('@/views/directive.vue'),
+          meta: {
+            title: 'vue指令'
+          }
         },
         {
           path: '/home/editor',
           name: 'editor',
-          component: () => import('@/views/editor.vue')
+          component: () => import('@/views/editor.vue'),
+          meta: {
+            title: 'editor编辑器'
+          }
         },
         {
           path: '/home/watch',
           name: 'watch',
-          component: () => import('@/views/watch.vue')
+          component: () => import('@/views/watch.vue'),
+          meta: {
+            title: 'vue watch属性'
+          }
         },
         {
           path: '/home/echart',
           name: 'echart1',
-          component: () => import('@/views/echart.vue')
+          component: () => import('@/views/echart.vue'),
+          meta: {
+            title: '图表'
+          }
         },
         {
           path: '/home/tab',
           name: 'tab',
-          component: () => import('@/views/tab')
+          component: () => import('@/views/tab'),
+          meta: {
+            title: 'tab'
+          }
         }
       ]
     }
@@ -84,6 +120,7 @@ const router = new Router({
 const LOGIN_PAGE_NAME = 'login'
 router.beforeEach((to, from, next) => {
   const token = getToken()
+  document.title = to.meta.title + '-ele admin'
   if (!token && to.name !== LOGIN_PAGE_NAME) {
     // 未登录且要跳转的页面不是登录页
     next({

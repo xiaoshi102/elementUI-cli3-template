@@ -1,9 +1,10 @@
 <template>
   <div class="p20">
     <div id="main"></div>
-    <div class="echart-wrap">
+    <!-- <div class="echart-wrap">
       <v-chart :options="options"/>
-    </div>
+    </div> -->
+    <ve-line :data="chartData"></ve-line>
   </div>
 </template>
 
@@ -20,10 +21,11 @@ import 'echarts/lib/chart/line'
 // import echarts from 'echarts'
 
 import ECharts from 'vue-echarts/components/ECharts'
+import VeLine from 'v-charts/lib/line.common'
 export default {
-  // components: {
-  //   'v-chart': ECharts
-  // },
+  components: {
+    [VeLine.name]: VeLine
+  },
   data: function() {
     return {
       options: {
@@ -65,6 +67,17 @@ export default {
             data: [200, 900, 601, 634, 1600, 430, 920],
             type: 'line'
           }
+        ]
+      },
+      chartData: {
+        columns: ['日期', '销售额'],
+        rows: [
+          { '日期': '1月1日', '销售额': 123 },
+          { '日期': '1月2日', '销售额': 1223 },
+          { '日期': '1月3日', '销售额': 2123 },
+          { '日期': '1月4日', '销售额': 4123 },
+          { '日期': '1月5日', '销售额': 3123 },
+          { '日期': '1月6日', '销售额': 7123 }
         ]
       }
     }

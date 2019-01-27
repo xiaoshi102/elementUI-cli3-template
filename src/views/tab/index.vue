@@ -1,16 +1,16 @@
 <template>
   <div>
-    <el-tabs v-model="activeName" @tab-click="handleClick" tab-position="right">
+    <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="tab1" name="first"><first/></el-tab-pane>
       <el-tab-pane label="tab2" name="second"><second/></el-tab-pane>
       <el-tab-pane label="tab3" name="third"><third/></el-tab-pane>
       <el-tab-pane label="tab4" name="fourth"><fourth/></el-tab-pane>
     </el-tabs>
     <el-button-group>
-        <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
-        <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
-        <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
-      </el-button-group>
+      <el-button type="primary" icon="el-icon-arrow-left">上一页</el-button>
+      <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
+      <el-button type="primary">下一页<i class="el-icon-arrow-right el-icon--right"></i></el-button>
+    </el-button-group>
     <div class="btn-group-wrap">
       <el-button-group>
         <el-button type="primary" icon="el-icon-arrow-left" @click.native="showTab('first')">btn1</el-button>
@@ -19,16 +19,19 @@
         <el-button type="primary" @click.native="showTab('fourth')">btn4<i class="el-icon-arrow-right el-icon--right"></i></el-button>
       </el-button-group>
       <div class="conten">
-        <component :is="comName"/>
+
       </div>
     </div>
     <div>
-      <el-radio-group v-model="radio3">
-        <el-radio-button label="上海"></el-radio-button>
-        <el-radio-button label="北京"></el-radio-button>
-        <el-radio-button label="广州"></el-radio-button>
-        <el-radio-button label="深圳"></el-radio-button>
+      <el-radio-group v-model="curCom">
+        <el-radio-button label="first">上海</el-radio-button>
+        <el-radio-button label="second">北京</el-radio-button>
+        <el-radio-button label="third">广州</el-radio-button>
+        <el-radio-button label="fourth">深圳</el-radio-button>
       </el-radio-group>
+      <div class="content">
+        <component :is="curCom"/>
+      </div>
     </div>
   </div>
 
@@ -46,7 +49,7 @@ export default {
     return {
       activeName: 'second',
       comName: 'first',
-      radio3: '北京'
+      curCom: 'second'
     }
   },
   methods: {

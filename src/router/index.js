@@ -70,6 +70,11 @@ const router = new Router({
           path: '/home/echart',
           name: 'echart1',
           component: () => import('@/views/echart.vue')
+        },
+        {
+          path: '/home/tab',
+          name: 'tab',
+          component: () => import('@/views/tab')
         }
       ]
     }

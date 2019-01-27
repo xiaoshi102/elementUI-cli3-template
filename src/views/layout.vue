@@ -22,6 +22,7 @@
           <el-menu-item index="/home/editor">editor</el-menu-item>
           <el-menu-item index="/home/watch">watch</el-menu-item>
           <el-menu-item index="/home/echart">echart</el-menu-item>
+          <el-menu-item index="/home/tab">tab</el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>

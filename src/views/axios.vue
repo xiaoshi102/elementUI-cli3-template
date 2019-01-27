@@ -19,7 +19,7 @@ import { getTest, login } from '@/assets/js/api'
 export default {
   data () {
     return {
-      reponseData: ""
+      reponseData: ''
     }
   },
   computed: {
@@ -55,9 +55,9 @@ export default {
     }
   },
   mounted () {
-    window.onbeforeunload = function () {
-      return '1111'
-    }
+    // window.onbeforeunload = function () {
+    //   return '1111'
+    // }
   }
 }
 </script>

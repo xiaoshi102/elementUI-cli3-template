@@ -8,6 +8,7 @@
 
 <script>
 export default {
+  name: 'watch',
   data () {
     return {
       info: {

@@ -27,6 +27,7 @@
 <script>
 import { login } from '@/assets/js/api'
 export default {
+  name: 'login',
   data () {
     return {
       form: {

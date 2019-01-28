@@ -13,46 +13,47 @@ var echarts = require('echarts/lib/echarts')
 // 引入柱状图
 require('echarts/lib/chart/line')
 // 引入提示框和标题组件
-require('echarts/lib/component/tooltip');
-require('echarts/lib/component/title');
-require('echarts/lib/component/legendScroll');
-import 'echarts/lib/chart/line'
+require('echarts/lib/component/tooltip')
+require('echarts/lib/component/title')
+require('echarts/lib/component/legendScroll')
+// import 'echarts/lib/chart/line'
 // import echarts from 'echarts'
 
-import ECharts from 'vue-echarts/components/ECharts'
+// import ECharts from 'vue-echarts/components/ECharts'
 export default {
+  name: 'echart',
   // components: {
   //   'v-chart': ECharts
   // },
-  data: function() {
+  data: function () {
     return {
       options: {
         grid: {
           // left: 'center'
-            left: '12%',
-            // right: '4%',
-            // bottom: '3%',
-            // containLabel: true
+          left: '12%'
+          // right: '4%',
+          // bottom: '3%',
+          // containLabel: true
         },
         title: {
           text: 'ECharts 入门示例',
           left: 'center'
         },
         xAxis: {
-            // position: 'top',
-            name: '日期',
-            nameLocation: 'center',
-            boundaryGap: false,
-            type: 'category',
-            data: ['2', '3', '4', '5', '6', '6', '7']
+          // position: 'top',
+          name: '日期',
+          nameLocation: 'center',
+          boundaryGap: false,
+          type: 'category',
+          data: ['2', '3', '4', '5', '6', '6', '7']
         },
         yAxis: {
-            type: 'value'
+          type: 'value'
         },
         legend: {
           data: ['2018', '2019'],
           left: 'left',
-          top: 20,
+          top: 20
         },
         series: [
           {
@@ -71,34 +72,34 @@ export default {
   },
   methods: {},
   mounted () {
-    var myChart = echarts.init(document.getElementById('main'));
+    var myChart = echarts.init(document.getElementById('main'))
     myChart.setOption({
       grid: {
         // left: 'center'
-          left: '12%',
-          // right: '4%',
-          // bottom: '3%',
-          // containLabel: true
+        left: '12%'
+        // right: '4%',
+        // bottom: '3%',
+        // containLabel: true
       },
       title: {
         text: 'ECharts 入门示例',
         left: 'center'
       },
       xAxis: {
-          // position: 'top',
-          name: '日期',
-          nameLocation: 'center',
-          boundaryGap: false,
-          type: 'category',
-          data: ['2', '3', '4', '5', '6', '6', '7']
+        // position: 'top',
+        name: '日期',
+        nameLocation: 'center',
+        boundaryGap: false,
+        type: 'category',
+        data: ['2', '3', '4', '5', '6', '6', '7']
       },
       yAxis: {
-          type: 'value'
+        type: 'value'
       },
       legend: {
         data: ['2018', '2019'],
         left: 'left',
-        top: 20,
+        top: 20
       },
       series: [
         {
@@ -112,7 +113,7 @@ export default {
           type: 'line'
         }
       ]
-    });
+    })
   }
 }
 </script>

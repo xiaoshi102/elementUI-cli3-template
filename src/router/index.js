@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import { getToken, setToken } from '@/libs/util'
+import { getToken } from '@/libs/util'
 // import Home from './views/Home.vue'
 import config from '@/config'
 
@@ -29,7 +29,7 @@ const router = new Router({
     },
     {
       path: '/home',
-      redirect: '/home/axios',
+      redirect: '/home/axios/1',
       name: 'home',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -37,7 +37,7 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "about" */ '@/views/layout.vue'),
       children: [
         {
-          path: '/home/axios',
+          path: '/home/axios/:id',
           name: 'axios',
           component: () => import('@/views/axios.vue')
         },

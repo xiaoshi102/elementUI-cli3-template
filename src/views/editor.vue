@@ -8,6 +8,7 @@
 <script>
 import VueNeditorWrap from 'vue-neditor-wrap'
 export default {
+  name: 'editor',
   components: {
     VueNeditorWrap
   },
@@ -15,8 +16,8 @@ export default {
     return {
       myConfig: {
         toolbars: [
-            ['undo', 'redo', 'fontsize', 'blockquote', 'horizontal', 'removeformat', 'formatmatch', 'link', 'unlink', 'emotion', 'insertimage'],
-            ['bold', 'italic', 'underline', 'forecolor', 'backcolor', 'indent', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', 'rowspacingtop', 'rowspacingbottom', 'lineheight', 'insertorderedlist', 'insertunorderedlist', 'imagenone', 'imageleft', 'imageright', 'imagecenter']
+          ['undo', 'redo', 'fontsize', 'blockquote', 'horizontal', 'removeformat', 'formatmatch', 'link', 'unlink', 'emotion', 'insertimage'],
+          ['bold', 'italic', 'underline', 'forecolor', 'backcolor', 'indent', 'justifyleft', 'justifycenter', 'justifyright', 'justifyjustify', 'rowspacingtop', 'rowspacingbottom', 'lineheight', 'insertorderedlist', 'insertunorderedlist', 'imagenone', 'imageleft', 'imageright', 'imagecenter']
         ],
         // 如果需要上传功能,找后端小伙伴要服务器接口地址
         serverUrl: '/upload',
@@ -45,7 +46,7 @@ export default {
       //   // 关闭自动保存
       //   enableAutoSave: false
       // },
-      content: 'hello',
+      content: 'hello'
     }
   },
   methods: {

@@ -8,6 +8,8 @@
       <p>count: {{$store.state.app.count}}</p>
       <el-button @click="login">click1</el-button>
       <el-button @click="handleStore">click2</el-button>
+      <el-button @click="goTo('/home/axios/2')">to axios</el-button>
+      <el-button @click="goTo('/home/vuex')">to vuex</el-button>
     </div>
   </div>
 </template>
@@ -17,9 +19,10 @@ import storage from 'store'
 import { mapState } from 'vuex'
 import { getTest, login } from '@/assets/js/api'
 export default {
+  name: 'axios',
   data () {
     return {
-      reponseData: ""
+      reponseData: ''
     }
   },
   computed: {
@@ -52,12 +55,19 @@ export default {
     },
     handleStore () {
       storage.set('name', { firstname: 'bx', lastname: 'z' })
+    },
+    goTo (path) {
+      this.$router.push(path)
     }
   },
   mounted () {
-    window.onbeforeunload = function () {
-      return '1111'
-    }
+    console.log(111)
+    login({ userName: 'admin', password: '123456' }).then(response => {
+      console.log(response)
+    })
+    // window.onbeforeunload = function () {
+    //   return '1111'
+    // }
   }
 }
 </script>

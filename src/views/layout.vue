@@ -11,8 +11,8 @@
     </el-header>
     <el-container>
       <el-aside width="200px">
-        <el-menu router :default-active="$route.path" @select="selectHandle">
-          <el-menu-item index="/home/axios">axios</el-menu-item>
+        <el-menu router :default-active="defaultActive" @select="selectHandle">
+          <el-menu-item index="/home/axios/1">axios</el-menu-item>
           <el-menu-item index="/home/vuex">vuex</el-menu-item>
           <el-submenu index="2">
             <template slot="title">table</template>
@@ -25,7 +25,9 @@
         </el-menu>
       </el-aside>
       <el-main>
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-main>
     </el-container>
   </el-container>
@@ -34,8 +36,9 @@
 <script>
 import storage from 'store'
 import { mapState } from 'vuex'
-import { logout, getMenuList } from '@/assets/js/api'
+import { logout, getMenuList } from '@/assets/js/api' // eslint-disable-line
 export default {
+  name: 'layout',
   data () {
     return {
       menuList: []
@@ -44,7 +47,10 @@ export default {
   computed: {
     ...mapState({
       realName: state => state.user.realName
-    })
+    }),
+    defaultActive () {
+      return this.$route.path
+    }
   },
   methods: {
     selectHandle (index, indexPath) { // 点击二级el-submenu不会触发
@@ -64,9 +70,9 @@ export default {
     }
   },
   mounted () {
-    getMenuList().then(response => {
-      this.menuList = response.data.records
-    })
+    // getMenuList().then(response => {
+    //   this.menuList = response.data.records
+    // })
   }
 }
 </script>

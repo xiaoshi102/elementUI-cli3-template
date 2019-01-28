@@ -11,9 +11,9 @@
     </el-header>
     <el-container>
       <el-aside width="200px">
-        <el-menu router :default-active="defaultActive" @select="selectHandle">
-          <el-menu-item index="/home/axios/1">axios</el-menu-item>
-          <el-menu-item index="/home/vuex">vuex</el-menu-item>
+        <el-menu router :default-active="$route.path" @select="selectHandle">
+          <el-menu-item index="/home/axios">axios</el-menu-item>
+          <el-menu-item index="/home/vuex/1">vuex</el-menu-item>
           <el-submenu index="2">
             <template slot="title">table</template>
             <el-menu-item index="/home/table/table1">table1</el-menu-item>
@@ -22,6 +22,7 @@
           <el-menu-item index="/home/editor">editor</el-menu-item>
           <el-menu-item index="/home/watch">watch</el-menu-item>
           <el-menu-item index="/home/echart">echart</el-menu-item>
+          <el-menu-item index="/home/tab">tab</el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>
@@ -52,10 +53,16 @@ export default {
       return this.$route.path
     }
   },
+  watch: {
+    // '$route' (newVal, oldVal) {
+    //   console.log('newVal', newVal)
+    //   console.log('oldVal', oldVal)
+    // }
+  },
   methods: {
     selectHandle (index, indexPath) { // 点击二级el-submenu不会触发
-      console.log(index)
-      console.log(indexPath)
+      // console.log(index)
+      // console.log(indexPath)
     },
     handleCommand (name) {
       switch (name) {

@@ -9,10 +9,15 @@ if (process.env.NODE_ENV === 'development') { // 开发环境
   config = {
     baseUrl: '/api'
   }
-} else if (process.env.VUE_APP_TITLE === 'alpha') { // 测试环境
+} else if (process.env.VUE_APP_TITLE === 'test') { // 测试环境
   console.log('test')
   config = {
     baseUrl: 'http://localhost:3004/api'
+  }
+} else if (process.env.VUE_APP_TITLE === 'alpha') { // 预发布环境
+  console.log('alpha')
+  config = {
+    baseUrl: 'http://localhost:3000/api'
   }
 } else if (process.env.VUE_APP_TITLE === 'production') { // 生产环境
   console.log('production')

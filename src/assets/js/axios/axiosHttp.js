@@ -7,7 +7,7 @@ import { showFullScreenLoading, tryHideFullScreenLoading } from './axiosInitHelp
 
 // 创建axios实例并配置默认值
 const axiosHttp = axios.create({
-  baseURL: config.baseUrl,
+  baseURL: config.serverUrl,
   timeout: 15000,
   headers: {
     // Authorization: '123456'

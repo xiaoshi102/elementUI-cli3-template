@@ -63,6 +63,9 @@ export default {
         }
       })
     }
+  },
+  mounted () {
+    console.log('login mounted', process.env.NODE_ENV)
   }
 }
 </script>

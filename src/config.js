@@ -5,24 +5,20 @@
 
 let config
 if (process.env.NODE_ENV === 'development') { // 开发环境
-  console.log('development')
   config = {
-    baseUrl: '/api'
+    serverUrl: '/api'
   }
-} else if (process.env.VUE_APP_TITLE === 'test') { // 测试环境
-  console.log('test')
+} else if (process.env.NODE_ENV === 'test') { // 测试环境
   config = {
-    baseUrl: 'http://localhost:3004/api'
+    serverUrl: '/test/api'
   }
-} else if (process.env.VUE_APP_TITLE === 'alpha') { // 预发布环境
-  console.log('alpha')
+} else if (process.env.NODE_ENV === 'alpha') { // 预发布环境
   config = {
-    baseUrl: 'http://localhost:3000/api'
+    serverUrl: '/alpha/api'
   }
-} else if (process.env.VUE_APP_TITLE === 'production') { // 生产环境
-  console.log('production')
+} else if (process.env.NODE_ENV === 'production') { // 生产环境
   config = {
-    baseUrl: 'http://localhost:3000/api'
+    serverUrl: '/production/api'
   }
 }
 export default config

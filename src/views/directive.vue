@@ -1,9 +1,5 @@
 <template>
   <div class="p20">
-    <el-card v-demo:foo.a.b="test">
-      <input type="text" v-focus style="margin-right: 20px;">
-      <el-button @click="test='hello world'" v-auth>click</el-button>
-    </el-card>
     <editor v-model="content" @init="editorInit" lang="html" theme="chrome" width="500" height="500"></editor>
   </div>
 </template>
@@ -15,12 +11,7 @@ export default {
   name: 'directive',
   data () {
     return {
-      test: 'just a test',
-      content: ''
     }
-  },
-  mounted () {
-    console.log('editor', editor)
   },
   methods: {
       editorInit: function () {

@@ -6,7 +6,7 @@ import config from '@/config'
 import { showFullScreenLoading, tryHideFullScreenLoading } from './axiosInitHelper'
 
 // 创建axios实例并配置默认值
-const axiosHttp = axios.create({
+const instance = axios.create({
   baseURL: config.serverUrl,
   timeout: 15000,
   headers: {
@@ -16,7 +16,7 @@ const axiosHttp = axios.create({
 })
 
 // 请求拦截器
-axiosHttp.interceptors.request.use(function (config) {
+instance.interceptors.request.use(function (config) {
   if (config.showLoading) {
     showFullScreenLoading()
   }
@@ -27,7 +27,7 @@ axiosHttp.interceptors.request.use(function (config) {
 })
 
 // 响应拦截器
-axiosHttp.interceptors.response.use(function (response) {
+instance.interceptors.response.use(function (response) {
   if (response.config.showLoading) {
     tryHideFullScreenLoading()
   }
@@ -48,9 +48,9 @@ axiosHttp.interceptors.response.use(function (response) {
 
 const defaultConfig = { showLoading: true }
 export default {
-  get: (url, config) => axiosHttp.get(url, { ...defaultConfig, ...config }),
-  put: (url, data, config) => axiosHttp.put(url, data, { ...defaultConfig, ...config }),
-  post: (url, data, config) => axiosHttp.post(url, data, { ...defaultConfig, ...config }),
-  patch: (url, data, config) => axiosHttp.patch(url, data, { ...defaultConfig, ...config }),
-  delete: (url, data, config) => axiosHttp.delete(url, { ...defaultConfig, ...config })
+  get: (url, config) => instance.get(url, { ...defaultConfig, ...config }),
+  put: (url, data, config) => instance.put(url, data, { ...defaultConfig, ...config }),
+  post: (url, data, config) => instance.post(url, data, { ...defaultConfig, ...config }),
+  patch: (url, data, config) => instance.patch(url, data, { ...defaultConfig, ...config }),
+  delete: (url, data, config) => instance.delete(url, { ...defaultConfig, ...config })
 }

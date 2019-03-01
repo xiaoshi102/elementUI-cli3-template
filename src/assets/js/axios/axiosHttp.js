@@ -52,5 +52,5 @@ export default {
   put: (url, data, config) => instance.put(url, data, { ...defaultConfig, ...config }),
   post: (url, data, config) => instance.post(url, data, { ...defaultConfig, ...config }),
   patch: (url, data, config) => instance.patch(url, data, { ...defaultConfig, ...config }),
-  delete: (url, data, config) => instance.delete(url, { ...defaultConfig, ...config })
+  delete: (url, config) => instance.delete(url, { ...defaultConfig, ...config })
 }

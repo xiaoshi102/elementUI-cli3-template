@@ -16,7 +16,7 @@ export default {
     return {
       info: {},
       isShow: true,
-      id: this.$route.params.id,
+      id: this.$route.params.id
     }
   },
   watch: {

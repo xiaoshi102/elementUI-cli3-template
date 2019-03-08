@@ -4,6 +4,10 @@ module.exports = {
       '/api': {
         target: 'http://localhost:3000/'
       }
+    },
+    overlay: {
+      warnings: true,
+      errors: true
     }
   },
   transpileDependencies: [

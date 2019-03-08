@@ -64,5 +64,5 @@ const vueInstance = new Vue({
   render: h => h(App)
 }).$mount('#app')
 
-// console.log(vueInstance)
+console.log(vueInstance)
 // console.log(Vue.myProperty)

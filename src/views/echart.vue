@@ -10,6 +10,11 @@
 
 <script>
 // 引入 ECharts 主模块
+// import 'echarts/lib/chart/line'
+// import echarts from 'echarts'
+
+// import ECharts from 'vue-echarts/components/ECharts'
+import VeLine from 'v-charts/lib/line.common'
 var echarts = require('echarts/lib/echarts')
 // 引入柱状图
 require('echarts/lib/chart/line')
@@ -17,16 +22,11 @@ require('echarts/lib/chart/line')
 require('echarts/lib/component/tooltip')
 require('echarts/lib/component/title')
 require('echarts/lib/component/legendScroll')
-// import 'echarts/lib/chart/line'
-// import echarts from 'echarts'
-
-import ECharts from 'vue-echarts/components/ECharts'
-import VeLine from 'v-charts/lib/line.common'
 export default {
   components: {
-    [VeLine.name]: VeLine
+    [VeLine.name]: VeLine /* eslint-disable-line */
   },
-  data: function() {
+  data: function () {
     return {
       options: {
         grid: {

@@ -114,6 +114,14 @@ const router = new Router({
           meta: {
             title: 'tab'
           }
+        },
+        {
+          path: '/home/slot',
+          name: 'tab',
+          component: () => import('@/views/slot'),
+          meta: {
+            title: 'slot'
+          }
         }
       ]
     }

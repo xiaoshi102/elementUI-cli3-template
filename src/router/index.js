@@ -1,8 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import { getToken } from '@/libs/util'
-// import Home from './views/Home.vue'
-import config from '@/config'
 
 Vue.use(Router)
 
@@ -11,19 +9,20 @@ const router = new Router({
   //   return { x: 0, y: 0 }
   // },
   routes: [
-    // {
-    //   path: '/',
-    //   redirect: '/login',
-    //   meta: {
-    //     title: '登录'
-    //   }
-    // },
     {
       path: '/login',
       name: 'login',
       component: () => import('@/views/login.vue'),
       meta: {
         title: '登录'
+      }
+    },
+    {
+      path: '/404',
+      name: '404',
+      component: () => import('@/views/404.vue'),
+      meta: {
+        title: '404'
       }
     },
     {
@@ -128,40 +127,31 @@ const router = new Router({
   ]
 })
 
-const LOGIN_PAGE_NAME = 'login'
 router.beforeEach((to, from, next) => {
-  console.log('beforeEach')
+  console.log(to)
+  if (to.matched.length === 0) {
+    console.log(404)
+    next({
+      path: '/404'
+    })
+  }
   const token = getToken()
   document.title = to.meta.title + '-ele admin'
-  if (!token && to.name !== LOGIN_PAGE_NAME) {
+  if (!token && to.name !== 'login') {
     // 未登录且要跳转的页面不是登录页
     next({
-      name: LOGIN_PAGE_NAME // 跳转到登录页
+      name: 'login' // 跳转到登录页
     })
-  } else if (!token && to.name === LOGIN_PAGE_NAME) {
+  } else if (!token && to.name === 'login') {
     // 未登陆且要跳转的页面是登录页
     next() // 跳转
-  } else if (token && to.name === LOGIN_PAGE_NAME) {
+  } else if (token && to.name === 'login') {
     // 已登录且要跳转的页面是登录页
     next({
-      path: '/' // 跳转到homeName页
+      path: '/'
     })
   } else { // 已登录且不是进入登录页
     next()
-    // console.log(store.state.user.hasGetInfo)
-    // if (store.state.user.hasGetInfo) {
-    //   turnTo(to, store.state.user.access, next)
-    // } else {
-    //   store.dispatch('getUserInfo').then(user => {
-    //     // 拉取用户信息，通过用户权限和跳转的页面的name来判断是否有权限访问;access必须是一个数组，如：['super_admin'] ['super_admin', 'admin']
-    //     turnTo(to, user.access, next)
-    //   }).catch(() => {
-    //     setToken('')
-    //     next({
-    //       name: 'login'
-    //     })
-    //   })
-    // }
   }
 })
 

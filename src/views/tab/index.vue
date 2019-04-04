@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="p10">
     <el-tabs v-model="activeName" @tab-click="handleClick">
       <el-tab-pane label="tab1" name="first"><first/></el-tab-pane>
       <el-tab-pane label="tab2" name="second"><second/></el-tab-pane>

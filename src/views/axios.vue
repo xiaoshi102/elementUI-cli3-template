@@ -10,6 +10,7 @@
       <el-button @click="handleStore">click2</el-button>
       <el-button @click="goTo('/home/axios/2')">to axios</el-button>
       <el-button @click="goTo('/home/vuex')">to vuex</el-button>
+      <el-button @click="goTo('/hello')">不存在的页面</el-button>
     </div>
   </div>
 </template>

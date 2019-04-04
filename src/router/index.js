@@ -128,35 +128,27 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(to)
   if (to.matched.length === 0) {
-    console.log(404)
-    next({
-      path: '/404'
-    })
-  }
-  const token = getToken()
-  document.title = to.meta.title + '-ele admin'
-  if (!token && to.name !== 'login') {
-    // 未登录且要跳转的页面不是登录页
-    next({
-      name: 'login' // 跳转到登录页
-    })
-  } else if (!token && to.name === 'login') {
-    // 未登陆且要跳转的页面是登录页
-    next() // 跳转
-  } else if (token && to.name === 'login') {
-    // 已登录且要跳转的页面是登录页
-    next({
-      path: '/'
-    })
-  } else { // 已登录且不是进入登录页
-    next()
+    next('/404')
+  } else {
+    const token = getToken()
+    document.title = to.meta.title + '-ele admin'
+    if (!token && to.name !== 'login') {
+      // 未登录且要跳转的页面不是登录页
+      next('/login')
+    } else if (!token && to.name === 'login') {
+      // 未登陆且要跳转的页面是登录页
+      next()
+    } else if (token && to.name === 'login') {
+      // 已登录且要跳转的页面是登录页
+      next('/')
+    } else { // 已登录且不是进入登录页
+      next()
+    }
   }
 })
 
 router.afterEach(to => {
-  console.log('afterEach')
   window.scrollTo(0, 0)
 })
 

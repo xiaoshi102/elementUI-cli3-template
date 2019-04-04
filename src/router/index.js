@@ -11,13 +11,13 @@ const router = new Router({
   //   return { x: 0, y: 0 }
   // },
   routes: [
-    {
-      path: '/',
-      redirect: '/login',
-      meta: {
-        title: '登录'
-      }
-    },
+    // {
+    //   path: '/',
+    //   redirect: '/login',
+    //   meta: {
+    //     title: '登录'
+    //   }
+    // },
     {
       path: '/login',
       name: 'login',
@@ -43,8 +43,8 @@ const router = new Router({
       }
     },
     {
-      path: '/home',
-      redirect: '/home/axios/1',
+      path: '/',
+      redirect: '/axios/1',
       name: 'home',
       // route level code-splitting
       // this generates a separate chunk (about.[hash].js) for this route
@@ -52,7 +52,7 @@ const router = new Router({
       component: () => import(/* webpackChunkName: "about" */ '@/views/layout.vue'),
       children: [
         {
-          path: '/home/axios/:id',
+          path: '/axios/:id',
           name: 'axios',
           component: () => import('@/views/axios.vue'),
           meta: {
@@ -60,7 +60,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/table/table1',
+          path: '/table1',
           name: 'table1',
           component: () => import('@/views/table/table1.vue'),
           meta: {
@@ -68,7 +68,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/vuex/:id',
+          path: '/vuex/:id',
           name: 'vuex',
           component: () => import('@/views/vuex.vue'),
           meta: {
@@ -76,7 +76,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/directive',
+          path: '/directive',
           name: 'directive',
           component: () => import('@/views/directive.vue'),
           meta: {
@@ -84,7 +84,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/editor',
+          path: '/editor',
           name: 'editor',
           component: () => import('@/views/editor.vue'),
           meta: {
@@ -92,7 +92,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/watch',
+          path: '/watch',
           name: 'watch',
           component: () => import('@/views/watch.vue'),
           meta: {
@@ -100,7 +100,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/echart',
+          path: '/echart',
           name: 'echart1',
           component: () => import('@/views/echart.vue'),
           meta: {
@@ -108,7 +108,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/tab',
+          path: '/tab',
           name: 'tab',
           component: () => import('@/views/tab'),
           meta: {
@@ -116,7 +116,7 @@ const router = new Router({
           }
         },
         {
-          path: '/home/slot',
+          path: '/slot',
           name: 'tab',
           component: () => import('@/views/slot'),
           meta: {
@@ -144,7 +144,7 @@ router.beforeEach((to, from, next) => {
   } else if (token && to.name === LOGIN_PAGE_NAME) {
     // 已登录且要跳转的页面是登录页
     next({
-      name: config.homeName // 跳转到homeName页
+      path: '/' // 跳转到homeName页
     })
   } else { // 已登录且不是进入登录页
     next()

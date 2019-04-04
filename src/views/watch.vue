@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div class="p10">
     {{info.name}} hello world
     <el-button @click="click1">click1</el-button>
     <el-button v-auth>看不到我</el-button>

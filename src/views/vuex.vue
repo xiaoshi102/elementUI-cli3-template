@@ -1,5 +1,5 @@
 <template>
-  <div class="p20" v-if="isShow" ref="info">
+  <div class="p10" v-if="isShow" ref="info">
     <h4>{{info.name}}</h4>
     <p>{{info.description}}</p>
     <div style="height: 1000px;background-color:#ccc">long height</div>

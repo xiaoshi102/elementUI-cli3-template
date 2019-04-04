@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div class="p10">
     editor
     <vue-neditor-wrap v-model="content" :config="myConfig" :destroy="false" @ready="ready"></vue-neditor-wrap>
   </div>

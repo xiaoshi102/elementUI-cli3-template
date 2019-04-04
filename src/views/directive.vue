@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div class="p10">
     <editor v-model="content" @init="editorInit" lang="html" theme="chrome" width="500" height="500"></editor>
   </div>
 </template>

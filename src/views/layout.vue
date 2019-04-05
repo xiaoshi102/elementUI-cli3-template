@@ -12,19 +12,19 @@
     <el-container>
       <el-aside width="200px">
         <el-menu router :default-active="$route.path" @select="selectHandle">
-          <el-menu-item index="/home/axios">axios</el-menu-item>
-          <el-menu-item index="/home/vuex/1">vuex</el-menu-item>
+          <el-menu-item index="/axios/1">axios</el-menu-item>
+          <el-menu-item index="/vuex/1">vuex</el-menu-item>
           <el-submenu index="2">
             <template slot="title">table</template>
-            <el-menu-item index="/home/table/table1">table1</el-menu-item>
-            <el-menu-item index="/home/table/table2">table2</el-menu-item>
+            <el-menu-item index="/table1">table1</el-menu-item>
+            <el-menu-item index="/table2">table2</el-menu-item>
           </el-submenu>
-          <el-menu-item index="/home/directive">directive</el-menu-item>
-          <el-menu-item index="/home/editor">editor</el-menu-item>
-          <el-menu-item index="/home/watch">watch</el-menu-item>
-          <el-menu-item index="/home/echart">echart</el-menu-item>
-          <el-menu-item index="/home/tab">tab</el-menu-item>
-          <el-menu-item index="/home/slot">slot</el-menu-item>
+          <el-menu-item index="/directive">directive</el-menu-item>
+          <el-menu-item index="/editor">editor</el-menu-item>
+          <el-menu-item index="/watch">watch</el-menu-item>
+          <el-menu-item index="/echart">echart</el-menu-item>
+          <el-menu-item index="/tab">tab</el-menu-item>
+          <el-menu-item index="/slot">slot</el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>
@@ -91,6 +91,7 @@ export default {
   width: 100%;
   height: 100%;
 }
+// 头部
 .el-header {
   background-color: #409EFF;
   .logo {
@@ -104,17 +105,24 @@ export default {
     margin-top: 20px;
   }
 }
-.el-aside {
-  border-right: 1px solid #dedede;
-  overflow-x: hidden;
-  .el-menu {
-    border-right: none;
+
+.el-container {
+  height: calc(~"100% - 60px");
+  // 左侧菜单
+  .el-aside {
+    border-right: 1px solid #dedede;
+    overflow-x: hidden;
+    .el-menu {
+      border-right: none;
+    }
+    .el-menu-item.is-active {
+      background-color: #ecf5ff;
+    }
   }
-  .el-menu-item.is-active {
-    background-color: #ecf5ff;
+  // 主体内容
+  .el-main {
+    padding: 0;
   }
 }
-.el-main {
-  padding: 0;
-}
+
 </style>

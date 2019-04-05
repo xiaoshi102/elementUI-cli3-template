@@ -55,7 +55,7 @@ export default {
               this.$store.commit('setRealName', response.data.realName)
               this.$store.commit('setUserId', response.data.userId)
               this.$store.commit('setAvatorImgPath', response.data.avatorImgPath)
-              this.$router.push('/home')
+              this.$router.push('/')
             } else {
               this.$message.error(response.msg)
             }

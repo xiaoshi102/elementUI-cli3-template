@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div class="p10">
     <div id="app">
       <p style="color:red" v-show="httpError.hasError">{{httpError.status}} | {{httpError.statusText}}</p>
       <el-button @click="requestHandle">get test</el-button>
@@ -10,6 +10,7 @@
       <el-button @click="handleStore">click2</el-button>
       <el-button @click="goTo('/home/axios/2')">to axios</el-button>
       <el-button @click="goTo('/home/vuex')">to vuex</el-button>
+      <el-button @click="goTo('/hello')">不存在的页面</el-button>
     </div>
   </div>
 </template>

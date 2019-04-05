@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div class="p10">
     <div id="main"></div>
     <!-- <div class="echart-wrap">
       <v-chart :options="options"/>

@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div class="p10">
     <h1>slot</h1>
     <Info>
       <template v-slot:operate="slotProps">

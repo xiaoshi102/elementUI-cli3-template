@@ -1,5 +1,5 @@
 <template>
-  <div class="p20">
+  <div class="p10">
     <h1>table1</h1>
     <el-table
       ref="mulTtable"

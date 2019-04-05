@@ -68,6 +68,14 @@ const router = new Router({
           }
         },
         {
+          path: '/home/table/table2',
+          name: 'table2',
+          component: () => import('@/views/table/table2.vue'),
+          meta: {
+            title: '表格'
+          }
+        },
+        {
           path: '/home/vuex/:id',
           name: 'vuex',
           component: () => import('@/views/vuex.vue'),

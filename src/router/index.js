@@ -64,6 +64,11 @@ const router = new Router({
           }
         },
         {
+          // path: '/table1/detail/:name',
+          path: '/detail/:name',
+          component: () => import('@/views/table/tableDetail.vue')
+        },
+        {
           path: '/table2',
           name: 'table2',
           component: () => import('@/views/table/table2.vue'),

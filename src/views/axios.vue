@@ -8,6 +8,7 @@
       <p>count: {{$store.state.app.count}}</p>
       <el-button @click="login">click1</el-button>
       <el-button @click="handleStore">click2</el-button>
+      <el-button type="primary" @click="testRequire">test require</el-button>
       <el-button @click="goTo('/home/axios/2')">to axios</el-button>
       <el-button @click="goTo('/home/vuex')">to vuex</el-button>
       <el-button @click="goTo('/hello')">不存在的页面</el-button>
@@ -59,6 +60,9 @@ export default {
     },
     goTo (path) {
       this.$router.push(path)
+    },
+    testRequire () {
+      
     }
   },
   mounted () {

@@ -23,6 +23,11 @@
       <el-table-column
         prop="address"
         label="地址"/>
+      <el-table-column>
+        <template slot-scope="{ row }">
+          <el-button type="text" @click="detail(row)">详情</el-button>
+        </template>
+      </el-table-column>
     </el-table>
     <div class="btn-wrap">
       <el-button type="primary" @click="clearSelection">取消勾选</el-button>
@@ -38,19 +43,19 @@ export default {
     return {
       tableData: [{
         date: '2016-05-02',
-        name: '王小虎',
+        name: '王小虎1',
         address: '上海市普陀区金沙江路 1518 弄'
       }, {
         date: '2016-05-04',
-        name: '王小虎',
+        name: '王小虎2',
         address: '上海市普陀区金沙江路 1517 弄'
       }, {
         date: '2016-05-01',
-        name: '王小虎',
+        name: '王小虎3',
         address: '上海市普陀区金沙江路 1519 弄'
       }, {
         date: '2016-05-03',
-        name: '王小虎',
+        name: '王小虎4',
         address: '上海市普陀区金沙江路 1516 弄'
       }]
     }
@@ -77,6 +82,9 @@ export default {
         console.log(row)
         this.$refs.mulTtable.toggleRowSelection(row)
       })
+    },
+    detail (row) {
+      this.$router.push(`/detail/${row.name}`)
     }
   }
 }
